@@ -1,0 +1,36 @@
+mat-toolbar {
+    background-color: white !important;
+    color: black !important;
+    position: relative !important;
+    z-index: 5 !important;
+    //  box-shadow: 4px 0 6px rgba(0, 0, 0, 0.1);
+}
+
+mat-sidenav-container {
+    background-color: white !important;
+    color: black !important;
+    height: calc(100vh - 64px) !important;
+}
+
+mat-sidenav {
+    background-color: white !important;
+    color: black !important;
+    // border-right: 0.05px solid green;
+    box-shadow: 4px 0 6px rgba(0, 0, 0, 0.1);
+}
+
+.content {
+    padding: 24px;
+}
+
+.double-border {
+  border: 0;                             /* Remove the default border */
+  border-top: 0.5px solid red;             /* Red top border */
+  border-right: 0.05px solid green;      /* Thin green right border */
+//   margin: 16px 0;                        /* Optional: Space around the divider */
+//   padding-right: 10px;                   /* Optional: Adds space between content and right border */
+}
+mat-sidenav,
+mat-sidenav-content{
+    transition: all 500ms ease-in-out;
+}

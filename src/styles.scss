@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.red-divider {
+  border: 0;              /* Removes the default border */
+  border-top: 1px solid red;  /* Adds a red top border */
+  margin: 16px 0;         /* Optional: Adds margin for spacing around the divider */
+}
+
+.green-divider {
+  border: 0;              /* Removes the default border */
+  border-top: 1px solid green;  /* Adds a red top border */
+  margin: 16px 0;         /* Optional: Adds margin for spacing around the divider */
+}
