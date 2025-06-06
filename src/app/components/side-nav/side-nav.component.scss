@@ -3,7 +3,7 @@
 }
 
 .sidenav-header {
-    padding-top: 20px;
+    padding-top: 15px;
     text-align: center;
 
     >img {
@@ -23,102 +23,95 @@
 
         >p {
             font-size: 0.8rem;
-
         }
     }
 }
 
 .custom-nav-list {
     background-color: white;
-    /* Set the background color to black */
     color: white;
-    /* Set the text color to white */
     height: 265px;
-    /* Fixed height for the nav list */
     overflow-y: auto;
 
+    // --
+  overflow-y: auto;
+
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: #d8e4bc transparent;
+
+  /* WebKit */
+  &::-webkit-scrollbar {
+    width: 1.5px;  /* Very thin */
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: red;
+    border-radius: 2px;
+  }
+
+  &:hover::-webkit-scrollbar-thumb {
+    background-color: darkred;
+  }
+
+    //   ------------
+
+    mat-list-item {
+        color: white;
+        display: flex;
+        align-items: center;
+        transition: all 0.3s ease;
+
+        &.active-link {
+            color: red !important;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            border-left: 3px solid green;
+            border-right: 3px solid red;
+
+            mat-icon {
+                color: red !important;
+            }
+        }
+
+        &:focus {
+            outline: none;
+            box-shadow: 0 0 5px rgba(185, 173, 173, 0.5);
+        }
+    }
+
+    mat-icon {
+        color: green;
+        margin-right: 8px;
+    }
+
+    span {
+        color: black;
+    }
 }
-
-.custom-nav-list mat-list-item {
-    color: white;
-    /* Make sure text inside list items is white */
-    // padding: 10px 16px;
-    transition: all 0.3s ease;
-    /* Smooth transition for mouse-over changes */
-}
-
-.custom-nav-list mat-icon {
-    color: green;
-    /* Ensure icons are also white */
-    margin-right: 8px;
-    /* Adds spacing between icon and label */
-}
-
-.custom-nav-list mat-list-item:active,
-.custom-nav-list mat-list-item:hover {
-    background-color: rgba(144, 238, 144, 0.3);
-    /* Light green with 30% opacity */
-    transition: background-color 0.3s ease-in-out;
-
-}
-
-.custom-nav-list mat-list-item:focus {
-    outline: none;
-    /* Remove default outline when the item is focused */
-    box-shadow: 0 0 5px rgba(185, 173, 173, 0.5);
-    /* Apply subtle glow/shadow effect on focus */
-}
-
-.custom-nav-list span {
-    color: black;
-}
-
-// .custom-nav-list span:active,
-// .custom-nav-list span:hover {
-//     color: red !important;  /* Change text color to red on hover and active */
-//     transition: color 0.3s ease-in-out; /* Smooth transition for color change */
-// }
-
-
 
 .hide-header-text {
     opacity: 0;
-    height: 0px !important;
+    height: 0 !important;
 }
-
-
-/* Default styles for mat-list-item */
-.custom-nav-list mat-list-item {
-    display: flex;
-    align-items: center;
-    //   padding: 10px 16px;
-    //   color: #000000; /* Default text color */
-}
-
-/* Active Link styles */
-.custom-nav-list mat-list-item.active-link {
-    background-color: rgba(183, 11, 11, 0.2);
-    /* Light red background on active */
-    color: red !important;
-    /* Change text color to red */
-    transition: background-color 0.3s ease, color 0.3s ease;
-    /* Smooth transition */
-    border-left: 3px solid green;
-    border-right: 3px solid red;
-}
-
-.custom-nav-list mat-list-item.active-link mat-icon {
-    color: red !important;
-    /* Icon color when the item is active */
-    //   border-left: 5px solid green;
-}
-
-
-// .selected-menu-item{
-//     border-left: 5px solid green;
-// }
 
 .menu-item {
-    border-left-color: rgba(0, 0, 0, 0);
-    border-left-color: rgba(0, 0, 0, 0);
+    border-left-color: transparent;
+}
+
+.selected-menu-item {
+    color: #00796b;
+}
+
+.nested-menu {
+    padding-left: 20px;
+}
+
+.mat-mdc-list-item.mdc-list-item--with-leading-avatar.mdc-list-item--with-one-line,
+.mat-mdc-list-item.mdc-list-item--with-leading-checkbox.mdc-list-item--with-one-line,
+.mat-mdc-list-item.mdc-list-item--with-leading-icon.mdc-list-item--with-one-line {
+    height: 40px;
 }

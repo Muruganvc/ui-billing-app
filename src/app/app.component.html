@@ -1,13 +1,27 @@
-<mat-toolbar class="mat-elevation-z3">
-  <button mat-icon-button (click)="collapsed.set(!collapsed())">
-    <mat-icon>menu</mat-icon>
-  </button>
+@if(isLogedIn()){
+<mat-toolbar class="mat-elevation-z3" color="primary">
+  <div class="toolbar-left">
+    <button mat-icon-button (click)="collapsed.set(!collapsed())">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+
+  @if (collapsed()) {
+  <div class="toolbar-right">
+    <img src="assets/img/Muruganvc.png" alt="Muruganvc" width="55" height="55" title="Muruganvc" />
+  </div>
+  }
 </mat-toolbar>
+
 <mat-sidenav-container>
-  <mat-sidenav opened mode="side" [style.width]="sideNavWidth()" class="double-border">
-    <cm-side-nav [collapsed] ='collapsed()'></cm-side-nav>
+  <mat-sidenav mode="side" opened [style.width]="sideNavWidth()" class="double-border">
+    <cm-side-nav [collapsed]="collapsed()"></cm-side-nav>
   </mat-sidenav>
+
   <mat-sidenav-content class="content" [style.margin-left]="sideNavWidth()">
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
+}@else {
+  <cm-login (isLogin)="loggedIn($event)"></cm-login>
+}

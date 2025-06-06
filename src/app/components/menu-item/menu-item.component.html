@@ -1,0 +1,10 @@
+<a>
+    <mat-list-item [routerLink]="item().route" routerLinkActive="active-link selected-menu-item menu-item"
+        #rla="routerLinkActive">
+        <mat-icon matListItemIcon>{{ item().icon }}</mat-icon>
+        @if (!collapsed()) {
+        <span matListItemTitle *ngIf="!collapsed()">{{ item().label }}</span>
+        }
+
+    </mat-list-item>
+</a>

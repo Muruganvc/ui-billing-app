@@ -21,3 +21,61 @@ body {
   border-top: 1px solid green;  /* Adds a red top border */
   margin: 16px 0;         /* Optional: Adds margin for spacing around the divider */
 }
+
+
+/* Remove background from mat-card */
+mat-card {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+ 
+
+//  /* Reset all mat-form-field MDC styles */
+//  .mat-mdc-form-field,
+//  .mat-mdc-form-field .mat-mdc-form-field-flex,
+//  .mat-mdc-form-field .mat-mdc-form-field-infix,
+//  .mat-mdc-form-field .mat-mdc-form-field-outline,
+//  .mat-mdc-form-field .mat-mdc-form-field-label,
+//  .mat-mdc-form-field .mat-mdc-form-field-subscript-wrapper,
+//  .mat-mdc-text-field-input,
+//  .mat-datepicker-toggle {
+//    all: unset !important;
+//    display: block !important;
+//    width: 100% !important;
+//    height: 24px !important;
+//    padding: 0 !important;
+//    margin: 0 !important;
+//    border: none !important;
+//    box-shadow: none !important;
+//    background: transparent !important;
+//    color: inherit !important;
+//    font: inherit !important;
+//  }
+
+//  /* Optional: Add your own minimal styles */
+//  .mat-mdc-form-field {
+//    width: 100%;
+//    /* or any width you want */
+//  }
+
+//  .mat-mdc-text-field-input {
+//    padding: 4px 8px;
+//    border: 1px solid #ccc;
+//    border-radius: 4px;
+//    font-size: 14px;
+//    box-sizing: border-box;
+//  }
+
+//  .mat-datepicker-toggle {
+//    width: 24px;
+//    height: 24px;
+//    vertical-align: middle;
+//  }
+
+//  /* Remove any floating label animation */
+//  .mat-mdc-form-field-label {
+//    position: static !important;
+//    transform: none !important;
+//    opacity: 1 !important;
+//    pointer-events: auto !important;
+//  }

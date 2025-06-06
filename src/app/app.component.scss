@@ -1,36 +1,68 @@
 mat-toolbar {
-    background-color: white !important;
-    color: black !important;
-    position: relative !important;
-    z-index: 5 !important;
-    //  box-shadow: 4px 0 6px rgba(0, 0, 0, 0.1);
+  background-color: white !important;
+  color: black !important;
+  position: relative !important;
+  z-index: 5 !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 mat-sidenav-container {
-    background-color: white !important;
-    color: black !important;
-    height: calc(100vh - 64px) !important;
+  background-color: white !important;
+  color: black !important;
+  height: calc(100vh - 64px) !important;
 }
 
 mat-sidenav {
-    background-color: white !important;
-    color: black !important;
-    // border-right: 0.05px solid green;
-    box-shadow: 4px 0 6px rgba(0, 0, 0, 0.1);
+  background-color: white !important;
+  color: black !important;
+  box-shadow: 4px 0 6px rgba(0, 0, 0, 0.1);
+}
+
+mat-sidenav,
+mat-sidenav-content {
+  transition: all 500ms ease-in-out;
+}
+
+.sidenav-container {
+  height: calc(100vh - 64px);
+  overflow: hidden;
+}
+
+.sidenav {
+  min-width: 60px;
+  max-width: 280px;
+  overflow-x: hidden;
+}
+
+.mat-sidenav-content {
+  overflow-x: hidden;
+  padding: 16px;
+  box-sizing: border-box;
 }
 
 .content {
-    padding: 24px;
+  padding: 24px;
 }
 
 .double-border {
-  border: 0;                             /* Remove the default border */
-  border-top: 0.5px solid red;             /* Red top border */
-  border-right: 0.05px solid green;      /* Thin green right border */
-//   margin: 16px 0;                        /* Optional: Space around the divider */
-//   padding-right: 10px;                   /* Optional: Adds space between content and right border */
+  border: 0;
+  border-top: 0.5px solid red;
+  border-right: 0.05px solid green;
 }
-mat-sidenav,
-mat-sidenav-content{
-    transition: all 500ms ease-in-out;
+
+.toolbar-content,
+.toolbar-left,
+.toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toolbar-content > img,
+.toolbar-left > img,
+.toolbar-right > img {
+  border-radius: 100px;
+  object-fit: cover;
 }

@@ -3,12 +3,15 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PartiesComponent } from './components/parties/parties.component';
 import { SalesListComponent } from './components/sales-list/sales-list.component';
+import { SettingsComponent } from './components/settings/settings.component';
+import { PasswordChangeComponent } from './components/settings/password-change/password-change.component';
+import { UserRoleComponent } from './components/settings/user-role/user-role.component';
 
 export const routes: Routes = [
     {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'dashboard'
+        redirectTo: 'login'
     },
     {
         path: 'dashboard',
@@ -25,5 +28,19 @@ export const routes: Routes = [
     {
         path: 'sales',
         component: SalesListComponent
+    },
+    {
+        path: 'settings',
+        component: SettingsComponent,
+        children: [
+            {
+                path: 'user-role',
+                component: UserRoleComponent
+            },
+            {
+                path: 'password-change',
+                component: PasswordChangeComponent
+            },
+        ]
     }
 ];

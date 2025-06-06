@@ -1,0 +1,142 @@
+/* ===== Login Page Container ===== */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 16px;
+    background-color: #f5f5f5;
+}
+
+/* ===== Material Card Styling ===== */
+mat-card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 100%;
+    padding: 24px;
+    box-sizing: border-box;
+    background: white;
+    text-align: left;
+    border-left-color: green;
+    border-top-color: green;
+    border-right-color: red;
+    border-bottom-color: red;
+}
+
+/* ===== Card Header Styling ===== */
+.mat-mdc-card-header {
+    display: unset !important;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* ===== Form Layout ===== */
+.form-container {
+    width: 100%;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 16px;
+    width: 100%;
+}
+
+.field-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* ===== Labels & Inputs ===== */
+.form-label {
+    margin-bottom: 4px;
+    font-size: 14px;
+}
+
+.form-input {
+    font-size: 14px;
+    height: 30px;
+    border: 1.5px solid #ccc;
+    border-radius: 4px;
+    padding: 5px;
+    outline: none;
+    width: 98%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+    border-top-color: green;
+    border-bottom-color: red;
+    border-left-color: green;
+    border-right-color: red;
+}
+
+/* ===== Submit Button ===== */
+.btn-submit.mat-raised-button,
+.btn-submit.mat-mdc-raised-button {
+    background-color: #4caf50 !important;
+    color: white !important;
+    box-shadow: none !important;
+    width: 100%;
+}
+
+/* ===== Responsive for Tablet and Desktop ===== */
+@media (min-width: 768px) {
+    .form-row {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 24px;
+    }
+
+    .field-group {
+        flex-direction: row;
+        align-items: center;
+        flex: 1 1 48%;
+        /* two fields per row */
+    }
+
+    .form-label {
+        flex: 0 0 120px;
+        margin-bottom: 0;
+        padding-top: 6px;
+    }
+
+    .form-input {
+        flex: 1;
+    }
+
+    .btn-submit {
+        width: 40%;
+    }
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.is-invalid {
+    border-color: red !important;
+}
+
+mat-icon {
+    color: red;
+}
+
+.form-input-error {
+    // font-size: 14px;
+    // height: 30px;
+    // border: 1px solid #ccc;
+    // border-radius: 4px;
+    // padding: 5px;
+    // outline: none;
+    // width: 100%;
+    // box-sizing: border-box;
+    border-left-color: green;
+    border-right-color: red;
+}

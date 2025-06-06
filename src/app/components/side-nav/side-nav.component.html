@@ -1,20 +1,53 @@
-<div class="sidenav-header">
-  <img [width]="profilePicSize()"  title="Muruganvc" [height]="profilePicSize()" src="assets/img/Muruganvc.png">
-  <div class="header-text" [class.hide-header-text]="sidenavCollapsed()">
-    <h2>Muruganvc</h2>
-    <p>Admin</p>
+@if (!sidenavCollapsed()) {
+  <div class="sidenav-header">
+    <img
+      [width]="profilePicSize()"
+      [height]="profilePicSize()"
+      title="Muruganvc"
+      src="assets/img/Muruganvc.png"
+    />
+    <div class="header-text" [class.hide-header-text]="sidenavCollapsed()">
+      <h2>Muruganvc</h2>
+      <p>Admin</p>
+    </div>
   </div>
-</div>
-<hr class="green-divider">
-<mat-nav-list class="custom-nav-list">
-  <a *ngFor="let item of menuItem()">
-    <mat-list-item 
-      [routerLink]="item.route" 
-      routerLinkActive="active-link selected-menu-item menu-item" 
-      #rla="routerLinkActive">
+  <hr class="green-divider" />
+}
+  <mat-nav-list class="custom-nav-list">
+  @for (item of menuItem(); track item.label) {
+    <mat-list-item
+      class="menu-item"
+      [routerLink]="item.route"
+      [class.active-link]="isRouteActive(item.route!)"
+      (click)="toggleItem(item.label)"
+    >
       <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
       <span matListItemTitle *ngIf="!sidenavCollapsed()">{{ item.label }}</span>
+
+      @if (item.subItem?.length) {
+        <span matListItemMeta>
+          <mat-icon>
+            {{ isExpanded(item.label) ? 'expand_less' : 'expand_more' }}
+          </mat-icon>
+        </span>
+      }
     </mat-list-item>
-  </a>
+
+    @if (item.subItem?.length && isExpanded(item.label)) {
+      <div [class.nested-menu]="!sidenavCollapsed()">
+        @for (child of item.subItem; track child.label) {
+          <mat-list-item
+            class="menu-item"
+            [routerLink]="item.route + '/' + child.route"
+            routerLinkActive="active-link selected-menu-item"
+          >
+            <mat-icon matListItemIcon>{{ child.icon }}</mat-icon>
+            <span matListItemTitle *ngIf="!sidenavCollapsed()">{{ child.label }}</span>
+          </mat-list-item>
+        }
+      </div>
+    }
+  }
 </mat-nav-list>
-<hr class="red-divider">
+
+<hr class="red-divider" />
