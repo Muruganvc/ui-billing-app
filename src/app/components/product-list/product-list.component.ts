@@ -1,16 +1,14 @@
-import { Component, ViewEncapsulation,ChangeDetectionStrategy } from '@angular/core';
+import { Component, } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
+import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-import { MatNativeDateModule, MatOptionModule } from '@angular/material/core';
-import { MatIconModule } from '@angular/material/icon';
-import { MatSelectModule } from '@angular/material/select';
-import {MatDatepickerModule} from '@angular/material/datepicker'; 
-import { Router } from '@angular/router';
-
+import { ActivatedRoute, Router } from '@angular/router';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'cm-product-list',
@@ -18,29 +16,67 @@ import { Router } from '@angular/router';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    MatFormFieldModule,
     MatInputModule,
-    MatSelectModule,
-    MatOptionModule,MatCardModule,MatButtonModule,MatIconModule,MatDatepickerModule,
-    MatNativeDateModule
+    MatButtonModule, FormsModule,
+    MatCardModule,
+    MatFormFieldModule,
+    ReactiveFormsModule, MatIconModule, MatTableModule,MatTooltipModule
   ],
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent {
- back() {
-    this.router.navigate(['/products']);
-  }
-  form = this.fb.group({
-    productName: [''],
-    productCompany: [''],
-    maximumRetailPrice: [''],
-    purchasePrice: [''],
-    quantity: [''],
-    availQuantity:[]
-  });
+  displayedColumns = ['productName', 'productCategory', 'productBrand', 'totalQuantity', 'maxRetailPrice', 'purchasePrice', 'action'];
+  dataSource = [
+    { productName: 'Switch', productCategory: '5A', productBrand: 'Lisha', totalQuantity: 100, maxRetailPrice: 20, purchasePrice: 12 },
+    { productName: 'Switch', productCategory: '15A', productBrand: 'Lisha', totalQuantity: 100, maxRetailPrice: 20, purchasePrice: 12 },
+    { productName: 'Switch', productCategory: '5A', productBrand: 'HiFi', totalQuantity: 100, maxRetailPrice: 20, purchasePrice: 12 },
+    { productName: 'Switch', productCategory: '15A', productBrand: 'HiFi', totalQuantity: 100, maxRetailPrice: 20, purchasePrice: 12 },
+    { productName: 'Socket', productCategory: '5A', productBrand: 'Lisha', totalQuantity: 100, maxRetailPrice: 20, purchasePrice: 12 },
+    { productName: 'Socket', productCategory: '15A', productBrand: 'Lisha', totalQuantity: 100, maxRetailPrice: 20, purchasePrice: 12 },
+    { productName: 'Socket', productCategory: '5A', productBrand: 'HiFi', totalQuantity: 100, maxRetailPrice: 20, purchasePrice: 12 },
+    { productName: 'Socket', productCategory: '15A', productBrand: 'HiFi', totalQuantity: 100, maxRetailPrice: 20, purchasePrice: 12 },
+    // { name: 'Jane Smith', email: 'jane@example.com' },
+    // { name: 'Sam Wilson', email: 'sam@example.com' },
+    // { name: 'Alice Cooper', email: 'alice@example.com' },
+    // { name: 'John Doe', email: 'john@example.com' },
+    // { name: 'Jane Smith', email: 'jane@example.com' },
+    // { name: 'Sam Wilson', email: 'sam@example.com' },
+    // { name: 'Alice Cooper', email: 'alice@example.com' },
+    // { name: 'John Doe', email: 'john@example.com' },
+    // { name: 'Jane Smith', email: 'jane@example.com' },
+    // { name: 'Sam Wilson', email: 'sam@example.com' },
+    // { name: 'Alice Cooper', email: 'alice@example.com' }
+  ];
 
-  constructor(private router: Router, private fb: FormBuilder) { }
-  onSubmit(){}
-  onCancel(){}
+  filterValue = '';
+  filteredData = [...this.dataSource];
+
+  ngOnInit() {
+    this.applyFilter();
+    // Optional: listen to window resize for dynamic mobile detection (advanced)
+  }
+
+  applyFilter() {
+    // const filter = this.filterValue.trim().toLowerCase();
+    // this.filteredData = this.dataSource.filter(item =>
+    //   item.name.toLowerCase().includes(filter) ||
+    //   item.email.toLowerCase().includes(filter)
+    // );
+  }
+  constructor(private router: Router, private route: ActivatedRoute) { }
+
+
+  clearFilter() {
+    this.filterValue = '';
+    this.applyFilter();
+  }
+
+  isMobileView(): boolean {
+    return window.innerWidth <= 768;
+  }
+
+  newproduct() {
+    this.router.navigate(['new'], { relativeTo: this.route });
+  }
 }

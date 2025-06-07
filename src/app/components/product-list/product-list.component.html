@@ -1,69 +1,116 @@
-<mat-card class="form-card" style="text-align: left; max-width: 100%; height: auto; margin: auto;">
-    <mat-card-header>
-        <mat-card-title>Product Details</mat-card-title>
-    </mat-card-header>
+<div class="login-container">
+    <mat-card>
+        <mat-card-content>
+            <form class="form-container">
+                <div class="form-row">
+                    <div class="field-group">
+                        <input type="text" (ngModelChange)="applyFilter()" required class="form-input" />
+                        <div class="btn">
+                            <button mat-raised-button class="btn-new" (click)="newproduct()">
+                                Add
+                            </button>
 
-    <mat-card-content>
-        <form [formGroup]="form" autocomplete="off" class="form-container">
-            <!-- First & Last Name Row -->
-            <div class="form-row">
-                <div class="field-group">
-                    <label for="productName" class="form-label">Product Name</label>
-                    <input id="productName" type="text" formControlName="productName" class="form-input" />
-                </div>
+                        </div>
 
-                <div class="field-group">
-                    <label for="productCompany" class="form-label">Product Company</label>
-                    <input id="productCompany" type="text" formControlName="productCompany" class="form-input" />
+                    </div>
                 </div>
-            </div>
+                <div class="data-content">
+                    <!-- Desktop/Table view -->
+                    <table mat-table [dataSource]="dataSource" class="mat-elevation-z2 full-table"
+                        *ngIf="!isMobileView()">
 
-            <div class="form-row">
-                <div class="field-group">
-                    <label for="maximumRetailPrice" class="form-label">Max.Retail Price</label>
-                    <input id="maximumRetailPrice" type="text" formControlName="maximumRetailPrice"
-                        class="form-input" />
-                </div>
+                        <ng-container matColumnDef="productName">
+                            <th mat-header-cell *matHeaderCellDef>Product Name</th>
+                            <td mat-cell *matCellDef="let element">{{element.productName}}</td>
+                        </ng-container>
 
-                <div class="field-group">
-                    <label for="purchasePrice" class="form-label">Purchase Price</label>
-                    <input id="purchasePrice" type="text" formControlName="purchasePrice" class="form-input" />
-                </div>
-            </div>
+                        <ng-container matColumnDef="productCategory">
+                            <th mat-header-cell *matHeaderCellDef>Product Category</th>
+                            <td mat-cell *matCellDef="let element">{{element.productCategory}}</td>
+                        </ng-container>
 
-            <div class="form-row">
-                <div class="field-group">
-                    <label for="quantity" class="form-label">Quantity</label>
-                    <input id="quantity" type="text" formControlName="quantity" class="form-input" />
-                </div>
+                        <ng-container matColumnDef="productBrand">
+                            <th mat-header-cell *matHeaderCellDef>Product Brand</th>
+                            <td mat-cell *matCellDef="let element">{{element.productBrand}}</td>
+                        </ng-container>
 
-                <div class="field-group">
-                    <label for="availQuantity" class="form-label">Total Quantity</label>
-                    <input id="availQuantity" type="text" formControlName="availQuantity" class="form-input" />
-                </div>
-            </div>
+                        <ng-container matColumnDef="totalQuantity">
+                            <th mat-header-cell *matHeaderCellDef>Total Quantity</th>
+                            <td mat-cell *matCellDef="let element">{{element.totalQuantity}}</td>
+                        </ng-container>
 
-            <!-- Gender Row -->
-            <!-- <div class="form-row">
-                <div class="field-group">
-                    <label for="gender" class="form-label">Gender</label>
-                    <mat-select id="gender" appearance="outline" formControlName="gender" class="form-input">
-                        <mat-option value="male">Male</mat-option>
-                        <mat-option value="female">Female</mat-option>
-                        <mat-option value="other">Other</mat-option>
-                    </mat-select>
+                        <ng-container matColumnDef="maxRetailPrice">
+                            <th mat-header-cell *matHeaderCellDef>Max.Retail Price</th>
+                            <td mat-cell *matCellDef="let element">{{element.maxRetailPrice}}</td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="purchasePrice">
+                            <th mat-header-cell *matHeaderCellDef>Purchase Price</th>
+                            <td mat-cell *matCellDef="let element">{{element.purchasePrice}}</td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="action">
+                            <th mat-header-cell *matHeaderCellDef>Action</th>
+                            <td mat-cell *matCellDef="let element">
+                                <button mat-icon-button color="warn" matTooltip="Approve" class="small-icon-button"
+                                    aria-label="Delete">
+                                    <mat-icon>done</mat-icon>
+                                </button>
+                                <button mat-icon-button color="primary" matTooltip="Rework" class="small-icon-button"
+                                    aria-label="Edit">
+                                    <mat-icon>edit</mat-icon>
+                                </button>
+                                <button mat-icon-button color="warn" matTooltip="Delete" class="small-icon-button"
+                                    aria-label="Delete">
+                                    <mat-icon>delete</mat-icon>
+                                </button>
+
+                            </td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: false"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+
+                    <!-- Mobile card view -->
+                    <div class="card-list" *ngIf="isMobileView()">
+                        <div class="card" *ngFor="let element of dataSource">
+                            <div class="card-row"><span class="card-label">Product Name:</span>
+                                <span>{{element.productName}}</span>
+                            </div>
+                            <div class="card-row"><span class="card-label">Product Category:</span>
+                                <span>{{element.productCategory}}</span>
+                            </div>
+                            <div class="card-row"><span class="card-label">Product Brand:</span>
+                                <span>{{element.productBrand}}</span>
+                            </div>
+                            <div class="card-row"><span class="card-label">Total Quantity:</span>
+                                <span>{{element.totalQuantity}}</span>
+                            </div>
+                            <div class="card-row"><span class="card-label">Max.Retail Price:</span>
+                                <span>{{element.maxRetailPrice}}</span>
+                            </div>
+                            <div class="card-row"><span class="card-label">Purchase Price:</span>
+                                <span>{{element.purchasePrice}}</span>
+                            </div>
+                            <div class="card-row action-row">
+                                <button mat-icon-button color="warn" matTooltip="Approve" class="small-icon-button"
+                                    aria-label="Delete">
+                                    <mat-icon>done</mat-icon>
+                                </button>
+                                <button mat-icon-button color="primary" matTooltip="Rework" class="small-icon-button"
+                                    aria-label="Edit">
+                                    <mat-icon>edit</mat-icon>
+                                </button>
+                                <button mat-icon-button color="warn" matTooltip="Delete" class="small-icon-button"
+                                    aria-label="Delete">
+                                    <mat-icon>delete</mat-icon>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div> -->
-        </form>
-    </mat-card-content>
-    <mat-card-actions style="padding: 5px; display: flex; justify-content: flex-end; gap: 10px;">
-        <button mat-raised-button class="btn-back" (click)="back()">
-            <mat-icon>backspace</mat-icon>
-            Back</button>
-        <button mat-raised-button class="btn-clear" (click)="onSubmit()">
-            <mat-icon>clear</mat-icon>
-            Clear</button>
-        <button mat-raised-button class="btn-submit" (click)="onSubmit()">
-            <mat-icon>save</mat-icon>Submit</button>
-    </mat-card-actions>
-</mat-card>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

@@ -1,4 +1,4 @@
-@if(isLogedIn()){
+<!-- @if(isLogedIn()){ -->
 <mat-toolbar class="mat-elevation-z3" color="primary">
   <div class="toolbar-left">
     <button mat-icon-button (click)="collapsed.set(!collapsed())">
@@ -22,6 +22,6 @@
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
-}@else {
+<!-- }@else {
   <cm-login (isLogin)="loggedIn($event)"></cm-login>
-}
+} -->

@@ -1,1 +1,66 @@
-<p>new-product works!</p>
+<div class="login-container">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Product Details</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+            <form [formGroup]="loginForm" class="form-container">
+                <!-- Row 1 -->
+                <div class="form-row">
+                    <div class="field-group">
+                        <label class="form-label">Product Name</label>
+                        <input type="text" formControlName="productName" class="form-input" 
+                        [class.form-input-error]="loginForm.get('productName')?.invalid && loginForm.get('productName')?.touched"   />
+                    </div>
+
+                    <div class="field-group">
+                        <label class="form-label">Product Category</label>
+                        <input type="email" formControlName="productCategory"  class="form-input" 
+                        [class.form-input-error]="loginForm.get('productCategory')?.invalid && loginForm.get('productCategory')?.touched" />
+                    </div>
+
+                    <div class="field-group">
+                        <label class="form-label">Product Brand</label>
+                        <input type="email" formControlName="productBrand"  
+                        [class.form-input-error]="loginForm.get('productBrand')?.invalid && loginForm.get('productBrand')?.touched" class="form-input" />
+                    </div>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="form-row">
+                    <div class="field-group">
+                        <label class="form-label">Quantity</label>
+                        <input type="text" formControlName="quantity"  
+                        [class.form-input-error]="loginForm.get('quantity')?.invalid && loginForm.get('quantity')?.touched"  class="form-input" />
+                    </div>
+
+                    <div class="field-group">
+                        <label class="form-label">Total Quantity</label>
+                        <input type="text" formControlName="totalQuantity"  
+                        [class.form-input-error]="loginForm.get('totalQuantity')?.invalid && loginForm.get('totalQuantity')?.touched" class="form-input" />
+                    </div>
+                    <div class="field-group">
+                        <label class="form-label">Max.Retail Price</label>
+                        <input type="text" formControlName="maxRetailPrice"   
+                        [class.form-input-error]="loginForm.get('maxRetailPrice')?.invalid && loginForm.get('maxRetailPrice')?.touched"  class="form-input" />
+                    </div>
+
+                    <div class="field-group">
+                        <label class="form-label">Purchase Price</label>
+                        <input type="text" formControlName="purchasePrice"
+                        [class.form-input-error]="loginForm.get('purchasePrice')?.invalid && loginForm.get('purchasePrice')?.touched" class="form-input" />
+                    </div>
+                </div>
+
+                <!-- Button Row -->
+                <div class="form-row form-submit-row">
+                    <button mat-raised-button class="btn-submit" (click)="back()" type="submit">Back</button>
+                    <button mat-raised-button class="btn-submit" type="submit">Cancel</button>
+                    <button mat-raised-button class="btn-submit" type="submit">Save</button>
+                </div>
+            </form>
+
+        </mat-card-content>
+    </mat-card>
+</div>

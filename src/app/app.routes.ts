@@ -7,6 +7,7 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { PasswordChangeComponent } from './components/settings/password-change/password-change.component';
 import { UserRoleComponent } from './components/settings/user-role/user-role.component';
 import { SignUpComponent } from './components/settings/sign-up/sign-up.component';
+import { NewProductComponent } from './components/product-list/new-product/new-product.component';
 
 export const routes: Routes = [
     {
@@ -25,6 +26,10 @@ export const routes: Routes = [
     {
         path: 'purchase',
         component: ProductListComponent
+    },
+    {
+        path: 'purchase/new',
+        component: NewProductComponent
     },
     {
         path: 'sales',
