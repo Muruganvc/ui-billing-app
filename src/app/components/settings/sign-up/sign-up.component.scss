@@ -1,48 +1,24 @@
-.login-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  padding: 16px;
-  background-color: #f5f5f5;
-}
-
-mat-card {
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  max-width: 600px;
-  width: 100%;
-  padding: 24px;
-  background: white;
-  box-sizing: border-box;
-  text-align: left;
-  border-left-color: green;
-  border-top-color: green;
-  border-right-color: red;
-  border-bottom-color: red;
-}
-
-.mat-mdc-card-header {
-  text-align: center;
-}
-
+/* ===== Form Container ===== */
 .form-container {
   width: 100%;
 }
 
+/* ===== Common Row Style ===== */
 .form-row {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 16px;
   margin-bottom: 16px;
 }
 
+/* ===== Field Wrapper ===== */
 .field-group {
-  flex: 1 1 100%;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
+/* ===== Labels & Inputs ===== */
 .form-label {
   margin-bottom: 4px;
   font-size: 14px;
@@ -50,62 +26,51 @@ mat-card {
 
 .form-input {
   font-size: 14px;
-  height: 30px;
-  border: 1px solid #ccc;
+  height: 32px;
+  padding: 6px 10px;
+  border: 1.5px solid #ccc;
   border-radius: 4px;
-  padding: 5px;
   outline: none;
   width: 100%;
   box-sizing: border-box;
 }
 
 
-
-
-
 .form-input:focus {
-  border-top-color: green;
-  border-bottom-color: red;
-  border-left-color: green;
-  border-right-color: red;
+    border-top-color: green;
+    border-bottom-color: red;
+    border-left-color: green;
+    border-right-color: red;
 }
 
-.btn-submit.mat-raised-button,
-.btn-submit.mat-mdc-raised-button {
+/* ===== Submit Button Row ===== */
+.form-submit-row {
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* ===== Button Styling ===== */
+.btn-submit {
+  width: 100%;
+  max-width: 300px;
   background-color: #4caf50 !important;
   color: white !important;
-  box-shadow: none !important;
-  width: 100%;
 }
 
-/* Two columns on tablets/desktops */
+/* ===== Tablet/Desktop: Two Columns ===== */
 @media (min-width: 768px) {
-  .field-group {
-    flex: 1 1 45%;
+  .form-row {
     flex-direction: row;
-    align-items: center;
+    gap: 24px;
+    justify-content: flex-end;
   }
 
-  .form-label {
-    flex: 0 0 120px;
-    margin-bottom: 0;
-    padding-top: 6px;
-  }
-
-  .form-input {
+  .field-group {
     flex: 1;
   }
 
   .btn-submit {
-    width: 40%;
+    width: 200px;
   }
-}
-
-.error-icon {
-  position: absolute;
-  right: 8px;
-  top: 38px; /* adjust as needed */
-  color: red; /* make icon red */
-  font-size: 20px;
-  pointer-events: none;
 }

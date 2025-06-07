@@ -64,6 +64,11 @@ export class SideNavComponent {
       route: 'settings',
       subItem: [
         {
+          route:'add-user',
+          label:'New User',
+          icon:'add'
+        },
+        {
           label: 'User Role',
           icon: 'person_add',
           route: 'user-role'
