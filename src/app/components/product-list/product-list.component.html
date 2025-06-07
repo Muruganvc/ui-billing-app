@@ -4,13 +4,10 @@
             <form class="form-container">
                 <div class="form-row">
                     <div class="field-group">
-                        <input type="text" (ngModelChange)="applyFilter()" required class="form-input" />
-                        <div class="btn">
-                            <button mat-raised-button class="btn-new" (click)="newproduct()">
-                                Add
-                            </button>
-
-                        </div>
+                        <input type="text" (ngModelChange)="applyFilter()" placeholder="Product Search" required class="form-input" />
+                        <button mat-raised-button class="btn-new" (click)="newproduct()">
+                           Add<mat-icon>add</mat-icon>
+                        </button>
 
                     </div>
                 </div>
