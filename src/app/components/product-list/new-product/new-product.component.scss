@@ -37,10 +37,10 @@
 
 
 .form-input:focus {
-    border-top-color: green;
-    border-bottom-color: red;
-    border-left-color: green;
-    border-right-color: red;
+  border-top-color: green;
+  border-bottom-color: red;
+  border-left-color: green;
+  border-right-color: red;
 }
 
 /* ===== Submit Button Row ===== */
@@ -51,6 +51,20 @@
 
 
 /* ===== Button Styling ===== */
+.btn-back {
+  width: 100%;
+  max-width: 300px;
+  background-color: #607d8b !important;
+  color: white !important;
+}
+
+.btn-cancel {
+  width: 100%;
+  max-width: 300px;
+  background-color: #f44336 !important;
+  color: white !important;
+}
+
 .btn-submit {
   width: 100%;
   max-width: 300px;
@@ -73,9 +87,53 @@
   .btn-submit {
     width: 200px;
   }
+    .btn-back {
+    width: 200px;
+  }
+    .btn-cancel {
+    width: 200px;
+  }
 }
 
 .form-input-error {
-    border-left-color: green;
-    border-right-color: red;
+  border-left-color: green;
+  border-right-color: red;
+}
+
+
+/* === Autocomplete Dropdown === */
+.autocomplete-wrapper {
+  position: relative;
+}
+
+.autocomplete-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background: white;
+  border: 1px solid #ccc;
+  border-top: none;
+  max-height: 200px;
+  overflow-y: auto;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.autocomplete-item {
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.autocomplete-item:hover {
+  background-color: #f0f0f0;
+}
+
+.autocomplete-item.selected {
+  background-color: #e0f7fa;
 }

@@ -40,7 +40,7 @@ export class LoginComponent {
       this.loginForm.markAllAsTouched(); // Mark fields to show validation
       return;
     }
-    this.isLogin.emit(true);
+    this.router.navigate(['/dashboard']);
     console.log(this.loginForm.value);
   }
 }
